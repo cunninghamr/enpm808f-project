@@ -24,13 +24,13 @@ conda activate env rcunning-project
 
 ## Running the Model
 
-The following command will train the hexapod using the default parameters and store the learned model in the `./results/run1` directory.
+The following command will train the hexapod using the default parameters and store the learned model in the `./results/<new name>` directory.
 
 ```bash
 python -m src.main --ckpt_dir=<new name> --num_episodes=3000 --train
 ``` 
 
-To test a learned model in the `./results/` directory and view the robot walking use the following command.
+To test a learned model in the `./results/<new name>` directory and view the robot walking use the following command.
 
 ```bash
 python -m src.main --ckpt_dir=<new name> --num_episodes=5 --test --render
@@ -44,17 +44,18 @@ python -m src.main --help
 
 ## Results
 
-Robot starting orientation constrained to [-30&deg;, 30&deg;] without demonstrations:
+Full details on the algorithm and results can be found in the [report](report.pdf).
+
+- Robot starting orientation constrained to [-30&deg;, 30&deg;] without demonstrations:
 
 ```bash
 python -m src.main --ckpt_dir=60_degrees --num_episodes=5 --test --render
 ```
 
 ![alt text](results/60_degrees/60_degrees.png)
-
 ![alt text](results/60_degrees/60_degrees.gif)
 
-Robot starting orientation constrained to [-30&deg;, 30&deg;] with demonstrations:
+- Robot starting orientation constrained to [-30&deg;, 30&deg;] with demonstrations:
 
 ```bash
 python -m src.main --ckpt_dir=demo_60_degrees --num_episodes=5 --test --render
@@ -64,7 +65,7 @@ python -m src.main --ckpt_dir=demo_60_degrees --num_episodes=5 --test --render
 
 ![alt text](results/demo_60_degrees/demo_60_degrees.gif)
 
-Robot starting orientation unconstrained ([-180&deg;, 180&deg;]) with demonstrations:
+- Robot starting orientation unconstrained ([-180&deg;, 180&deg;]) with demonstrations:
 
 ```bash
 python -m src.main --ckpt_dir=demo_360_degrees --num_episodes=5 --test --render
